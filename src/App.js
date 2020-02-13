@@ -9,7 +9,7 @@ class App extends Component {
       { name: "Max", age: 23 },
       { name: "Andrew", age: 12 }
     ],
-    otherState: "some other values"
+    showPersons: false
   };
 
   switchNameHandler = newName => {
@@ -33,6 +33,11 @@ class App extends Component {
     });
   };
 
+  togglePersonsHandler = () => {
+    const doesShow = this.state.showPersons;
+    this.setState({ showPersons: !doesShow });
+  };
+
   render() {
     const buttonStyle = {
       backgroundColor: "white",
@@ -46,28 +51,29 @@ class App extends Component {
       <div className="App">
         <h1>Hi I'm a React app</h1>
         <p>This is really working</p>
-        <button
-          style={buttonStyle}
-          onClick={() => this.switchNameHandler("Lolo")}
-        >
-          Switch names
+        <button style={buttonStyle} onClick={this.togglePersonsHandler}>
+          Toggle Person
         </button>
-        <Person
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age}
-          click={this.switchNameHandler.bind(this, "Andrea!!!")}
-          changed={this.nameChangeHandler}
-        >
-          My hobbies: Gaming
-        </Person>
-        <Person
-          name={this.state.persons[1].name}
-          age={this.state.persons[1].age}
-        />
-        <Person
-          name={this.state.persons[2].name}
-          age={this.state.persons[2].age}
-        />
+        {this.state.showPersons ? (
+          <div>
+            <Person
+              name={this.state.persons[0].name}
+              age={this.state.persons[0].age}
+              click={this.switchNameHandler.bind(this, "Andrea!!!")}
+              changed={this.nameChangeHandler}
+            >
+              My hobbies: Gaming
+            </Person>
+            <Person
+              name={this.state.persons[1].name}
+              age={this.state.persons[1].age}
+            />
+            <Person
+              name={this.state.persons[2].name}
+              age={this.state.persons[2].age}
+            />
+          </div>
+        ) : null}
       </div>
     );
   }
