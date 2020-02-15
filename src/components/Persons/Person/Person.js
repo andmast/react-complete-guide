@@ -1,18 +1,24 @@
-import React from "react";
+import React, { Component } from "react";
 
 import classes from "./Person.module.css";
 
-const person = props => {
-  console.log("TCL: person");
-  return (
-    <div className={classes.Person}>
-      <p onClick={props.click}>
-        I'm a {props.name} and I'm {props.age} years old
-      </p>
-      <p>{props.children}</p>
-      <input type="text" onChange={props.changed} defaultValue={props.name} />
-    </div>
-  );
-};
+class Person extends Component {
+  render() {
+    console.log("TCL: Person -> render");
+    return (
+      <div className={classes.Person}>
+        <p onClick={this.props.click}>
+          I'm a {this.props.name} and I'm {this.props.age} years old
+        </p>
+        <p>{this.props.children}</p>
+        <input
+          type="text"
+          onChange={this.props.changed}
+          defaultValue={this.props.name}
+        />
+      </div>
+    );
+  }
+}
 
-export default person;
+export default Person;
