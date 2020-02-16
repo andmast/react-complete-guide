@@ -6,6 +6,14 @@ import classes from "./Person.module.css";
 import WithClass from "../../../HOC/withClass";
 
 class Person extends Component {
+  constructor(props) {
+    super(props);
+    this.inputElementRef = React.createRef();
+  }
+  componentDidMount() {
+    this.inputElementRef.current.focus();
+  }
+
   render() {
     console.log("TCL: Person -> render");
     return (
@@ -15,6 +23,10 @@ class Person extends Component {
         </p>
         <p>{this.props.children}</p>
         <input
+          // ref={inputEl => {
+          //   this.inputElement = inputEl;
+          // }}
+          ref={this.inputElementRef}
           type="text"
           onChange={this.props.changed}
           defaultValue={this.props.name}
