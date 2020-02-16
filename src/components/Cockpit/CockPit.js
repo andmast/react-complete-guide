@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./CockPit.module.css";
 
 const CockPit = props => {
+  useEffect(() => {
+    console.log("TCL: CockPit -> useEffect");
+  });
+
   const assignedClasses = [];
 
   let btnClass = [classes.Button];
