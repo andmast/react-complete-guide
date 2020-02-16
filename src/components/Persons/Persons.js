@@ -29,6 +29,10 @@ class Persons extends Component {
     console.log("TCL: Persons -> componentDidUpdate", " Snap Shot:", snapshot);
   }
 
+  componentWillUnmount() {
+    console.log("TCL: Persons -> componentWillUnmount");
+  }
+
   render() {
     console.log("TCL: Persons -> render");
     return this.props.persons.map((person, index) => {

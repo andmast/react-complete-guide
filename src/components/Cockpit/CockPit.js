@@ -7,7 +7,18 @@ const CockPit = props => {
     setTimeout(() => {
       alert("Saved Data  to the Cloud");
     }, 1000);
+
+    return () => {
+      console.log("TCL: CockPit -> cleanup");
+    };
   }, []);
+
+  useEffect(() => {
+    console.log("TCL: Cockpit -> 2nd useEffect");
+    return () => {
+      console.log("TCL: CockPit ->  2nd cleanup");
+    };
+  });
 
   const assignedClasses = [];
 
