@@ -30,10 +30,10 @@ const CockPit = props => {
     btnClass.push(classes.Red);
   }
 
-  if (props.persons.length <= 2) {
+  if (props.personsLength <= 2) {
     assignedClasses.push(classes.red);
   }
-  if (props.persons.length <= 1) {
+  if (props.personsLength <= 1) {
     assignedClasses.push(classes.bold);
   }
 
@@ -48,4 +48,4 @@ const CockPit = props => {
   );
 };
 
-export default CockPit;
+export default React.memo(CockPit);

@@ -88,10 +88,10 @@ class App extends Component {
         </button>
         {this.state.showCockPit ? (
           <CockPit
-            persons={this.state.persons}
-            showPersons={this.state.showPersons}
-            clicked={this.togglePersonsHandler}
             title={this.props.appTitle}
+            showPersons={this.state.showPersons}
+            personsLength={this.state.persons.length}
+            clicked={this.togglePersonsHandler}
           />
         ) : null}
         {persons}
