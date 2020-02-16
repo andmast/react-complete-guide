@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import Person from "./Person/Person";
 
 class Persons extends Component {
-  static getDerivedStateFromProps(props, state) {
-    console.log("TCL: Persons -> getDerivedStateFromProps ");
-    return state;
-  }
+  // static getDerivedStateFromProps(props, state) {
+  //   console.log("TCL: Persons -> getDerivedStateFromProps ");
+  //   return state;
+  // }
 
   // componentWillReceiveProps(props) {
   //   console.log("TCL: Persons -> componentWillReceiveProps");
@@ -13,7 +13,12 @@ class Persons extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log("TCL: Persons -> shouldComponentUpdate");
-    return true;
+    //Shallow Comparing Arrays
+    if (nextProps.persons !== this.props.persons) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
