@@ -27,6 +27,15 @@ class App extends Component {
     console.log("TCL: App -> componentDidMount");
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("TCL: App -> shouldComponentUpdate");
+    return true;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("TCL: App -> componentDidUpdate");
+  }
+
   nameChangeHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => {
       return p.id === id;
