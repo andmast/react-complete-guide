@@ -4,11 +4,13 @@ import classes from "./CockPit.module.css";
 const CockPit = props => {
   useEffect(() => {
     console.log("TCL: CockPit -> useEffect");
-    setTimeout(() => {
+    // HTTP Request....
+    const timer = setTimeout(() => {
       alert("Saved Data  to the Cloud");
     }, 1000);
 
     return () => {
+      clearTimeout(timer);
       console.log("TCL: CockPit -> cleanup");
     };
   }, []);
