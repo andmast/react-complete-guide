@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import Person from "./Person/Person";
 
-class Persons extends Component {
+class Persons extends PureComponent {
   // static getDerivedStateFromProps(props, state) {
   //   console.log("TCL: Persons -> getDerivedStateFromProps ");
   //   return state;
@@ -11,15 +11,19 @@ class Persons extends Component {
   //   console.log("TCL: Persons -> componentWillReceiveProps");
   // }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log("TCL: Persons -> shouldComponentUpdate");
-    //Shallow Comparing Arrays
-    if (nextProps.persons !== this.props.persons) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log("TCL: Persons -> shouldComponentUpdate");
+  //   //Shallow Comparing Arrays
+  //   if (
+  //     nextProps.persons !== this.props.persons ||
+  //     nextProps.changed !== this.props.changed ||
+  //     nextProps.clicked !== this.props.clicked
+  //   ) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log("TCL: Persons -> getSnapshotBeforeUpdate");
