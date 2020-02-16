@@ -20,7 +20,8 @@ class App extends Component {
     ],
     showPersons: false,
     showCockPit: true,
-    changeCounter: 0
+    changeCounter: 0,
+    auth: false
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -68,6 +69,10 @@ class App extends Component {
     this.setState({ showPersons: !doesShow });
   };
 
+  loginHandler = () => {
+    this.setState({ auth: true });
+  };
+
   render() {
     console.log("TCL: App -> render");
     let persons = null;
@@ -78,6 +83,7 @@ class App extends Component {
           persons={this.state.persons}
           clicked={this.deletePersonHandler}
           changed={this.nameChangeHandler}
+          auth={this.state.auth}
         />
       );
     }
@@ -97,6 +103,7 @@ class App extends Component {
             showPersons={this.state.showPersons}
             personsLength={this.state.persons.length}
             clicked={this.togglePersonsHandler}
+            login={this.loginHandler}
           />
         ) : null}
         {persons}

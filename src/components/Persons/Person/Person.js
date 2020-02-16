@@ -18,6 +18,7 @@ class Person extends Component {
     console.log("TCL: Person -> render");
     return (
       <Fragment>
+        {this.props.isAuth ? <p>Auth away</p> : <p>Please Login</p>}
         <p onClick={this.props.click}>
           I'm a {this.props.name} and I'm {this.props.age} years old
         </p>
