@@ -3,6 +3,7 @@ import classes from "./App.module.css";
 
 import Persons from "../components/Persons/Persons";
 import CockPit from "../components/Cockpit/CockPit";
+import WithClass from "../HOC/WithClass";
 
 class App extends Component {
   constructor(props) {
@@ -78,7 +79,7 @@ class App extends Component {
     }
 
     return (
-      <div className={classes.App}>
+      <WithClass classes={classes.App}>
         <button
           onClick={() => {
             this.setState({ showCockPit: false });
@@ -95,7 +96,7 @@ class App extends Component {
           />
         ) : null}
         {persons}
-      </div>
+      </WithClass>
     );
   }
 }
