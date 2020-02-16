@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 
 import classes from "./Person.module.css";
+import Aux from "../../../HOC/Aux";
 
 class Person extends Component {
   render() {
     console.log("TCL: Person -> render");
     return (
-      <div className={classes.Person}>
+      <Aux>
         <p onClick={this.props.click}>
           I'm a {this.props.name} and I'm {this.props.age} years old
         </p>
@@ -16,7 +17,7 @@ class Person extends Component {
           onChange={this.props.changed}
           defaultValue={this.props.name}
         />
-      </div>
+      </Aux>
     );
   }
 }
